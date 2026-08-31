@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinn Tilles — Resume</title>
+<meta name="description" content="Quinn Tilles' resume — view or download.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stage-black:#15121c;
+    --ticket-cream:#f4eee0;
+    --ticket-white:#fffdf8;
+    --ink:#1e1726;
+    --marquee-gold:#f2b705;
+    --wash-magenta:#e8407a;
+    --line-soft:rgba(244,238,224,0.18);
+    --font-display:'Anton', sans-serif;
+    --font-body:'Space Grotesk', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0; font-family:var(--font-body); background:var(--stage-black); color:var(--ticket-cream);
+    min-height:100vh; display:flex; flex-direction:column; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  :focus-visible{ outline:3px solid var(--marquee-gold); outline-offset:3px; }
+
+  header{
+    padding:1.2rem 6%; display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .logo{
+    font-family:var(--font-display); font-size:1.2rem; letter-spacing:0.06em; text-decoration:none;
+    color:var(--ticket-cream); display:flex; align-items:center; gap:0.5rem;
+  }
+  .logo-mark{
+    width:26px; height:26px; border:2px solid var(--marquee-gold); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:0.6rem; color:var(--marquee-gold);
+  }
+  .back-link{
+    font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    text-decoration:none; opacity:0.75; border-bottom:1px solid transparent;
+    transition:opacity 0.2s ease, border-color 0.2s ease;
+  }
+  .back-link:hover{ opacity:1; border-color:var(--marquee-gold); }
+
+  main{
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    padding:2.8rem 6% 3.5rem; gap:1.8rem;
+  }
+  .resume-heading{ text-align:center; }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--wash-magenta); display:block; margin-bottom:0.6rem;
+  }
+  h1{
+    font-family:var(--font-display); text-transform:uppercase; letter-spacing:0.01em; margin:0;
+    font-size:clamp(1.8rem, 5vw, 2.6rem); text-wrap:balance;
+  }
+
+  .download-btn{
+    font-family:var(--font-mono); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;
+    background:var(--marquee-gold); color:var(--stage-black); text-decoration:none;
+    padding:0.85rem 1.8rem; border-radius:100px; display:inline-block;
+    transition:transform 0.2s ease;
+  }
+  .download-btn:hover{ transform:translateY(-2px); }
+
+  .resume-frame{
+    position:relative; width:min(760px, 100%); min-height:420px; background:var(--ticket-white);
+    border-radius:10px; overflow:hidden; box-shadow:0 30px 60px -24px rgba(0,0,0,0.6);
+  }
+  .resume-frame img{ width:100%; display:block; }
+  .resume-fallback{
+    display:none; position:absolute; inset:0; align-items:center; justify-content:center; text-align:center;
+    font-family:var(--font-mono); font-size:0.8rem; line-height:1.7; letter-spacing:0.03em;
+    color:var(--ticket-cream); background:var(--stage-black); opacity:0.85; padding:2rem;
+  }
+  .resume-fallback code{ color:var(--marquee-gold); opacity:1; }
+
+  footer{
+    padding:1.2rem 6%; text-align:center; font-family:var(--font-mono); font-size:0.7rem;
+    letter-spacing:0.1em; text-transform:uppercase; opacity:0.5;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><span class="logo-mark">QT</span> Quinn Tilles</a>
+  <a href="index.html" class="back-link">← Back to Site</a>
+</header>
+
+<main>
+  <div class="resume-heading">
+    <span class="eyebrow">All Access</span>
+    <h1>Résumé</h1>
+  </div>
+
+  <a class="download-btn" href="assets/quinn-tilles-resume.pdf" download>Download PDF</a>
+
+  <div class="resume-frame">
+    <img src="assets/resume.jpg" alt="Quinn Tilles resume" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="resume-fallback">Add resume image:<br><code>assets/resume.jpg</code></div>
+  </div>
+</main>
+
+<footer>© 2026 Quinn Tilles</footer>
+
+</body>
+</html>
