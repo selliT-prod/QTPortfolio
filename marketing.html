@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinn Tilles — Digital Marketing</title>
+<meta name="description" content="Quinn Tilles — digital marketer and live event producer. Paid social that pays off.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1877f2;
+    --blue-dim:#e7f0fe;
+    --bg:#f0f2f5;
+    --white:#ffffff;
+    --text:#050505;
+    --text-dim:#65676b;
+    --border:#dadde1;
+    --green:#31a24c;
+    --green-dim:#e6f5ea;
+    --font:'Inter', system-ui, sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0; font-family:var(--font); background:var(--bg); color:var(--text);
+    line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--blue); text-decoration:none; }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  img,video{ max-width:100%; display:block; }
+  .wrap{ width:min(1080px, 94%); margin-inline:auto; }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{ background:var(--white); border-bottom:1px solid var(--border); }
+  .topbar-inner{ display:flex; align-items:center; justify-content:space-between; padding:0.75rem 0; }
+  .brand{ display:flex; align-items:center; gap:0.6rem; }
+  .brand-mark{
+    width:32px; height:32px; border-radius:8px; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.95rem;
+  }
+  .brand-text{ font-weight:700; font-size:1.02rem; }
+  .brand-text span{ color:var(--text-dim); font-weight:500; font-size:0.85rem; display:block; }
+  .topbar-right{ display:flex; align-items:center; gap:0.9rem; }
+  .avatar{ width:34px; height:34px; border-radius:50%; object-fit:cover; border:2px solid var(--border); }
+  .btn-primary{
+    background:var(--blue); color:#fff; font-weight:600; font-size:0.86rem;
+    padding:0.55rem 1.1rem; border-radius:6px; transition:background 0.15s ease;
+  }
+  .btn-primary:hover{ background:#1360d1; }
+
+  /* ---------- TAB BAR ---------- */
+  .tabbar{ background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:30; overflow-x:auto; }
+  .tabbar-inner{ display:flex; gap:0.2rem; }
+  .tab{
+    font-weight:600; font-size:0.88rem; color:var(--text-dim); text-decoration:none; white-space:nowrap;
+    padding:0.95rem 1.1rem; border-bottom:3px solid transparent; transition:color 0.15s ease, border-color 0.15s ease;
+  }
+  .tab:hover{ color:var(--text); }
+  .tab.active{ color:var(--blue); border-bottom-color:var(--blue); }
+
+  /* ---------- STATUS PILL ---------- */
+  .pill{
+    display:inline-flex; align-items:center; gap:0.4em; font-size:0.78rem; font-weight:600;
+    padding:0.25rem 0.65rem; border-radius:100px;
+  }
+  .pill-green{ background:var(--green-dim); color:var(--green); }
+  .pill-green::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green); }
+  .pill-gray{ background:#eceef1; color:var(--text-dim); }
+
+  /* ---------- PANEL ---------- */
+  .panel{ background:var(--white); border:1px solid var(--border); border-radius:10px; }
+  .panel-pad{ padding:1.6rem; }
+
+  /* ---------- ABOUT PHOTO ---------- */
+  .about-panel{ display:grid; grid-template-columns:220px 1fr; gap:1.8rem; align-items:start; }
+  @media (max-width:650px){ .about-panel{ grid-template-columns:1fr; } }
+  .about-photo{
+    position:relative; aspect-ratio:4/5; border-radius:8px; overflow:hidden; background:var(--bg);
+    border:1px solid var(--border);
+  }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .about-photo-fallback{
+    display:none; position:absolute; inset:0; align-items:center; justify-content:center; text-align:center;
+    font-size:0.75rem; color:var(--text-dim); padding:1rem;
+  }
+  .about-photo-fallback code{ color:var(--blue); }
+  .about-text{ min-width:0; }
+
+  /* ---------- OVERVIEW ---------- */
+  .overview{ padding:2rem 0; }
+  .ov-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1.4rem; flex-wrap:wrap; gap:0.8rem; }
+  .ov-head h1{ font-size:1.5rem; margin:0; display:flex; align-items:center; gap:0.7rem; }
+  .breadcrumb{ font-size:0.8rem; color:var(--text-dim); margin:0 0 0.4rem; }
+
+  .metric-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:1rem; margin-top:1.4rem; }
+  @media (max-width:800px){ .metric-grid{ grid-template-columns:1fr; } }
+  .metric-key{ font-size:0.78rem; color:var(--text-dim); font-weight:600; margin-bottom:0.5rem; }
+  .metric-num{ font-size:1.7rem; font-weight:800; margin-bottom:0.3rem; }
+  .metric-num .arrow{ color:var(--blue); }
+  .metric-delta{ font-size:0.8rem; color:var(--green); font-weight:600; }
+  .spark{ width:100%; height:44px; margin-top:0.8rem; }
+  .spark path{ fill:none; stroke:var(--blue); stroke-width:2; }
+  .spark path.fill{ stroke:none; fill:var(--blue-dim); }
+
+  /* ---------- SECTION ---------- */
+  .section{ padding:2.4rem 0; }
+  .section-title{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+  .section-title h2{ font-size:1.15rem; margin:0; }
+  .section-title .count{ font-size:0.82rem; color:var(--text-dim); }
+
+  /* ---------- TABLE (experience / education) ---------- */
+  .table-head{
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 0.9fr; gap:1rem; padding:0.7rem 1.4rem;
+    font-size:0.76rem; font-weight:700; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.02em;
+    border-bottom:1px solid var(--border);
+  }
+  @media (max-width:750px){ .table-head{ display:none; } }
+  .table-row{
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 0.9fr; gap:1rem; padding:1rem 1.4rem;
+    border-bottom:1px solid var(--border); align-items:center;
+  }
+  .table-row:last-child{ border-bottom:none; }
+  @media (max-width:750px){ .table-row{ grid-template-columns:1fr; gap:0.4rem; } }
+  .row-name{ font-weight:700; font-size:0.95rem; }
+  .row-org{ font-size:0.82rem; color:var(--text-dim); }
+  .row-desc{ font-size:0.85rem; color:var(--text-dim); grid-column:1 / -1; margin-top:0.3rem; }
+  .row-date{ font-size:0.85rem; color:var(--text-dim); }
+
+  /* ---------- CHIPS (skills) ---------- */
+  .chip-row{ display:flex; flex-wrap:wrap; gap:0.6rem; padding:1.4rem; }
+  .chip{
+    font-size:0.85rem; font-weight:600; color:var(--blue); background:var(--blue-dim);
+    border:1px solid rgba(24,119,242,0.25); border-radius:100px; padding:0.5rem 0.95rem;
+  }
+  .honors-box{ padding:0 1.4rem 1.4rem; }
+  .honors-box li{ font-size:0.86rem; color:var(--text-dim); padding:0.5rem 0; border-top:1px solid var(--border); list-style:none; }
+  .honors-box li:first-child{ border-top:none; }
+  .honors-box{ margin:0; padding-left:0; }
+  .honors-box ul{ list-style:none; margin:0; padding:0 1.4rem 1.2rem; }
+
+  /* ---------- AD PREVIEW CARDS (portfolio) ---------- */
+  .ad-card{ display:grid; grid-template-columns:220px 1fr; gap:0; border-bottom:1px solid var(--border); }
+  .ad-card:last-child{ border-bottom:none; }
+  @media (max-width:700px){ .ad-card{ grid-template-columns:1fr; } }
+  .ad-preview{ background:#000; aspect-ratio:4/5; overflow:hidden; }
+  .ad-preview img,.ad-preview video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .ad-info{ padding:1.4rem 1.6rem; }
+  .ad-status{ margin-bottom:0.6rem; }
+  .ad-info h3{ font-size:1.05rem; margin:0 0 0.4rem; }
+  .ad-info p{ font-size:0.88rem; color:var(--text-dim); margin:0 0 1rem; max-width:60ch; }
+  .ad-stats{ display:flex; gap:1.6rem; flex-wrap:wrap; margin-bottom:0.8rem; }
+  .ad-stat-key{ font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.02em; }
+  .ad-stat-val{ font-size:0.95rem; font-weight:700; }
+  .ad-info a.visit{ font-size:0.85rem; font-weight:600; }
+
+  /* ---------- AUDIENCE / TRAVEL ---------- */
+  .audience-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:0.8rem; padding:1.4rem; }
+  @media (max-width:650px){ .audience-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .audience-item{ border-radius:8px; overflow:hidden; position:relative; }
+  .audience-item img{ width:100%; aspect-ratio:1/1; object-fit:cover; }
+  .audience-tag{
+    position:absolute; bottom:0.5rem; left:0.5rem; right:0.5rem;
+    background:rgba(5,5,5,0.68); color:#fff; font-size:0.72rem; font-weight:600;
+    padding:0.35rem 0.55rem; border-radius:5px;
+  }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  .footer{ padding:2.6rem 0 3.5rem; text-align:center; }
+  .footer h2{ font-size:1.4rem; margin:0 0 0.6rem; }
+  .footer p{ color:var(--text-dim); max-width:48ch; margin:0 auto 1.4rem; font-size:0.95rem; }
+  .footer-actions{ display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; }
+  .btn-outline{
+    border:1.5px solid var(--border); color:var(--text); font-weight:600; font-size:0.86rem;
+    padding:0.55rem 1.1rem; border-radius:6px; background:var(--white);
+  }
+  .foot-back{ display:block; margin-top:1.6rem; font-size:0.85rem; color:var(--text-dim); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">QT</div>
+      <div class="brand-text">Quinn Tilles<span>Business Manager</span></div>
+    </div>
+    <div class="topbar-right">
+      <a class="btn-outline" href="marketing-resume.html">Resume</a>
+      <a class="btn-primary" href="#resume">+ Contact</a>
+      <img class="avatar" src="assets/photo.jpg" alt="Quinn Tilles">
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabbar">
+  <div class="wrap tabbar-inner">
+    <a href="#overview" class="tab active">Overview</a>
+    <a href="#about" class="tab">About</a>
+    <a href="#experience" class="tab">Experience</a>
+    <a href="#skills" class="tab">Skills &amp; Honors</a>
+    <a href="#education" class="tab">Education</a>
+    <a href="#portfolio" class="tab">Portfolio</a>
+    <a href="#audience" class="tab">Travel</a>
+    <a href="#resume" class="tab">Resume</a>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <p class="breadcrumb">Quinn Tilles / Overview</p>
+    <div class="ov-head">
+      <h1>Quinn Tilles <span class="pill pill-green">Active</span></h1>
+    </div>
+
+    <div class="metric-grid">
+      <div class="panel panel-pad">
+        <p class="metric-key">Location</p>
+        <p class="metric-num" style="font-size:1.3rem;">Long Beach, CA</p>
+      </div>
+      <div class="panel panel-pad">
+        <p class="metric-key">Education</p>
+        <p class="metric-num" style="font-size:1.3rem;">Cal Poly, SLO — Class of 2027</p>
+      </div>
+      <div class="panel panel-pad">
+        <p class="metric-key">Focus</p>
+        <p class="metric-num" style="font-size:1.3rem;">Digital Marketing &amp; Event Production</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-title"><h2>About</h2></div>
+    <div class="panel panel-pad about-panel">
+      <div class="about-photo">
+        <img src="assets/photo.jpg" alt="Quinn Tilles" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="about-photo-fallback">Add photo:<br><code>assets/photo.jpg</code></div>
+      </div>
+      <div class="about-text">
+        <p style="margin:0 0 1rem;">Born and raised in Long Beach, California, I'm a Sociology major at California Polytechnic University, San Luis Obispo, and my passions are digital marketing, concert production, and entrepreneurship.</p>
+        <p style="margin:0 0 1rem;">I've worked in digital marketing for the last two years, and I'm currently planning a live event with my partner, working closely with crews and talent, with a focus on paid marketing. As a freelance marketer, I grew a clothing brand's social following from 1,000 to 100,000 through paid ads and social media funnels.</p>
+        <p style="margin:0 0 1rem;">I studied abroad during the fall semester of my junior year in Barcelona, Spain, which fuels my love of traveling — though as much as I love California, I miss having four real seasons. At my core, I'm a family man who prioritizes the people closest to me.</p>
+        <p style="margin:0;">I'm excited for future opportunities — thank you!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="section-title"><h2>Experience</h2><span class="count">9 campaigns</span></div>
+    <div class="panel">
+      <div class="table-head"><span>Name</span><span>Date Range</span><span>Status</span><span>Category</span></div>
+
+      <div class="table-row">
+        <div><p class="row-name">Brand New Media</p><p class="row-org">Stage Management</p></div>
+        <p class="row-date">Apr 2026 – Present</p>
+        <span class="pill pill-green">Active</span>
+        <p class="row-desc">Assist Stage Management staff in coordinating talent on and off stage, helping ensure smooth, safe operations for crew, talent, and audience members.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">JDINALLO</p><p class="row-org">Media Buyer</p></div>
+        <p class="row-date">Jan 2025 – May 2026</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Media buyer with the ability to turn cold traffic into consistent sales and leads through Meta Ad campaigns. Used short-form content concepts to scale engagement from 1,200 to 100,000 followers in one year.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">Cal Poly Career Fair</p><p class="row-org">Senior Project Lead</p></div>
+        <p class="row-date">Aug 2026 – Feb 2027</p>
+        <span class="pill pill-green">Active</span>
+        <p class="row-desc">Plan and coordinate with a team to recruit employers; cold-call and email outreach, and coordinate with venue staff and media advertising.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">BBI Autosport</p><p class="row-org">Social Media Manager Intern</p></div>
+        <p class="row-date">Dec 2025 – Jan 2026</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Increased Instagram engagement by shifting strategy to short-form video — Reels and TikTok cross-posts.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">The Truck Show Podcast</p><p class="row-org">Audio Editor</p></div>
+        <p class="row-date">Nov 2023 – Dec 2024</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Edited two episodes per week for the #1 pickup-truck enthusiast podcast, Truck Famous LLC.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">Long Beach Clothing</p><p class="row-org">Sales Associate</p></div>
+        <p class="row-date">Aug 2024 – Dec 2024</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Gave style guidance and resolved customer issues for a memorable in-store experience.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">LA County District Attorney's Office</p><p class="row-org">Intern Law Clerk</p></div>
+        <p class="row-date">Jun 2023 – Aug 2023</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Sat at counsel table during arraignments; managed case materials and the case calendar.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">Target Corporation</p><p class="row-org">Sales Associate</p></div>
+        <p class="row-date">Jul 2022 – Jul 2023</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Processed in-store and drive-up order pickups, ensuring accuracy and timely fulfillment.</p>
+      </div>
+      <div class="table-row">
+        <div><p class="row-name">KROQ-FM Los Angeles</p><p class="row-org">Event Staff Crew</p></div>
+        <p class="row-date">Jun 2016 – Sep 2018</p>
+        <span class="pill pill-gray">Completed</span>
+        <p class="row-desc">Aided promotional staff and DJs during live events.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS & HONORS -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-title"><h2>Skills &amp; Honors</h2><span class="count">Targeting &amp; Awards</span></div>
+    <div class="panel">
+      <div class="chip-row">
+        <span class="chip">Written &amp; Verbal Communication</span>
+        <span class="chip">Customer Service</span>
+        <span class="chip">Leadership</span>
+        <span class="chip">Adobe Creative Cloud</span>
+        <span class="chip">Social Media Management</span>
+        <span class="chip">Stage Management</span>
+        <span class="chip">Event Planning</span>
+        <span class="chip">Meta Ads Manager</span>
+        <span class="chip">AI Animation</span>
+        <span class="chip">AI Workflows</span>
+      </div>
+      <ul>
+        <li>John Reily Knox Award of Excellence — Beta Theta Pi, Epsilon Delta Chapter</li>
+        <li>Wooden Institute Certification of Completion</li>
+        <li>Millikan High School Honor Roll, 3.5–3.99 GPA</li>
+        <li>Week of Welcome Leader, Cal Poly — Sept 2024</li>
+        <li>Kicks for Kids — Taught Elementary School Children, Feb 2025</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="section-title"><h2>Education</h2></div>
+    <div class="panel">
+      <div class="table-row" style="grid-template-columns:1.6fr 1fr;">
+        <div><p class="row-name">California Polytechnic State University, San Luis Obispo</p><p class="row-org">B.A. Sociology &amp; Criminal Justice</p></div>
+        <p class="row-date">2023 – 2027 (Expected)</p>
+      </div>
+      <div class="table-row" style="grid-template-columns:1.6fr 1fr;">
+        <div><p class="row-name">Millikan High School</p><p class="row-org">Long Beach, CA — High School Diploma</p></div>
+        <p class="row-date">2019 – 2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="wrap">
+    <div class="section-title"><h2>Portfolio</h2><span class="count">Ad Creative</span></div>
+    <div class="panel">
+
+      <div class="ad-card">
+        <div class="ad-preview"><video src="assets/project-1.mp4" controls playsinline preload="metadata"></video></div>
+        <div class="ad-info">
+          <span class="pill pill-gray ad-status">Completed</span>
+          <h3>BBI Autosport Media</h3>
+          <p>I was lucky to be part of the BBI Autosport team, creating short-form content designed to drive high engagement and sales. It was an amazing opportunity to showcase my video editing skills and understanding of short-form engagement.</p>
+          <div class="ad-stats"><div><p class="ad-stat-key">Format</p><p class="ad-stat-val">Reels</p></div><div><p class="ad-stat-key">Result</p><p class="ad-stat-val">Engagement ↑</p></div></div>
+          <a class="visit" href="https://www.instagram.com/bbiautosport/reels/" target="_blank" rel="noopener">View on Instagram →</a>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-preview"><video src="assets/project-2.mov" controls playsinline preload="metadata"></video></div>
+        <div class="ad-info">
+          <span class="pill pill-green ad-status">Live</span>
+          <h3>Nylon House</h3>
+          <p>Recently, I've had the opportunity to work with Brad Smith at Brand New Media on a few different events. Nylon House was by far the most influential — a private event held during Coachella Weekend 1, 2026. My role involved assisting the talent and their team, and coordinating with the lighting crew, stage crew, and security to ensure the safety of all attendees.</p>
+          <div class="ad-stats"><div><p class="ad-stat-key">Format</p><p class="ad-stat-val">Live Event</p></div><div><p class="ad-stat-key">Result</p><p class="ad-stat-val">Audience Engagement</p></div></div>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-preview"><img src="assets/project-3.png" alt="The Truck Show Podcast"></div>
+        <div class="ad-info">
+          <span class="pill pill-gray ad-status">Completed</span>
+          <h3>The Truck Show Podcast</h3>
+          <p>Not only did I learn an abundance about podcasting and trucks, but I also picked up new audio editing skills using Adobe Premiere. Working with both co-hosts was insightful, and I'm proud to have been part of the #1 truck podcast on Apple Podcasts.</p>
+          <div class="ad-stats"><div><p class="ad-stat-key">Format</p><p class="ad-stat-val">Podcast</p></div><div><p class="ad-stat-key">Result</p><p class="ad-stat-val">#1 on Apple</p></div></div>
+          <a class="visit" href="https://podcasts.apple.com/us/podcast/sema-show-2023-part-1-live-from-the-egr-booth/id1357401021?i=1000633800775" target="_blank" rel="noopener">Listen on Apple Podcasts →</a>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-preview"><video src="assets/project-4.mp4" controls playsinline preload="metadata"></video></div>
+        <div class="ad-info">
+          <span class="pill pill-green ad-status">Live</span>
+          <h3>JDINALLO</h3>
+          <p>I was incredibly excited to start my digital marketing journey with clothing designer Joey Dinallo in late 2024. We worked together on media buying for his custom clothing, starting with his sweatsuit collection, as well as short-form media. When we began working together, he was at 1,200 followers across all platforms. He now sits at 270,000+ followers.</p>
+          <div class="ad-stats"><div><p class="ad-stat-key">Format</p><p class="ad-stat-val">Reels</p></div><div><p class="ad-stat-key">Result</p><p class="ad-stat-val">Engagement</p></div></div>
+          <a class="visit" href="https://www.instagram.com/j.dinallo/" target="_blank" rel="noopener">View on Instagram →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL / AUDIENCE -->
+<section class="section" id="audience">
+  <div class="wrap">
+    <div class="section-title"><h2>Passport Locations</h2><span class="count">9 locations</span></div>
+    <div class="panel">
+      <div class="audience-grid">
+        <div class="audience-item"><img src="assets/travel-1.jpg" alt="Edinburgh, Scotland"><span class="audience-tag">Edinburgh, Scotland</span></div>
+        <div class="audience-item"><img src="assets/travel-2.jpg" alt="London, United Kingdom"><span class="audience-tag">London, UK</span></div>
+        <div class="audience-item"><img src="assets/travel-3.jpg" alt="Morocco, Africa"><span class="audience-tag">Morocco, Africa</span></div>
+        <div class="audience-item"><img src="assets/travel-4.jpg" alt="Zermatt, Switzerland"><span class="audience-tag">Zermatt, Switzerland</span></div>
+        <div class="audience-item"><img src="assets/travel-5.jpg" alt="Barcelona, Spain"><span class="audience-tag">Barcelona, Spain</span></div>
+        <div class="audience-item"><img src="assets/travel-6.jpg" alt="Mallorca, Spain"><span class="audience-tag">Mallorca, Spain</span></div>
+        <div class="audience-item"><img src="assets/travel-7.jpg" alt="Sorrento, Italy"><span class="audience-tag">Sorrento, Italy</span></div>
+        <div class="audience-item"><img src="assets/travel-8.jpg" alt="Lisbon, Portugal"><span class="audience-tag">Lisbon, Portugal</span></div>
+        <div class="audience-item"><img src="assets/travel-9.jpg" alt="Yosemite National Park"><span class="audience-tag">Yosemite Nat'l Park</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME / CONTACT -->
+<section class="section" id="resume">
+  <div class="wrap">
+    <div class="panel footer">
+      <h2>Ready to run this campaign?</h2>
+      <p>Full resume available on request, or download it directly below.</p>
+      <div class="footer-actions">
+        <a class="btn-outline" href="marketing-resume.html">View Resume</a>
+        <a class="btn-outline" href="mailto:quinn.tilles@gmail.com">quinn.tilles@gmail.com</a>
+        <a class="btn-outline" href="tel:+15626666433">(562) 666-6433</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const sections = document.querySelectorAll('.overview, .section');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '-80px 0px -60% 0px' });
+    sections.forEach(s => io.observe(s));
+  }
+</script>
+
+</body>
+</html>

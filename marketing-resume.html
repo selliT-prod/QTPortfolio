@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinn Tilles — Resume</title>
+<meta name="description" content="Quinn Tilles' resume — view or download.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1877f2;
+    --blue-dim:#e7f0fe;
+    --bg:#f0f2f5;
+    --white:#ffffff;
+    --text:#050505;
+    --text-dim:#65676b;
+    --border:#dadde1;
+    --font:'Inter', system-ui, sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0; font-family:var(--font); background:var(--bg); color:var(--text);
+    line-height:1.5; -webkit-font-smoothing:antialiased; min-height:100vh;
+    display:flex; flex-direction:column;
+  }
+  a{ color:var(--blue); text-decoration:none; }
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  img{ max-width:100%; display:block; }
+  .wrap{ width:min(1080px, 94%); margin-inline:auto; }
+  .wrap-n{ width:min(760px, 92%); margin-inline:auto; }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{ background:var(--white); border-bottom:1px solid var(--border); }
+  .topbar-inner{ display:flex; align-items:center; justify-content:space-between; padding:0.75rem 0; }
+  .brand{ display:flex; align-items:center; gap:0.6rem; }
+  .brand-mark{
+    width:32px; height:32px; border-radius:8px; background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.95rem;
+  }
+  .brand-text{ font-weight:700; font-size:1.02rem; }
+  .brand-text span{ color:var(--text-dim); font-weight:500; font-size:0.85rem; display:block; }
+  .back-link{ font-weight:600; font-size:0.86rem; color:var(--text-dim); }
+  .back-link:hover{ color:var(--text); }
+
+  /* ---------- MAIN ---------- */
+  main{ flex:1; padding:2.6rem 0 3.5rem; }
+  .breadcrumb{ font-size:0.8rem; color:var(--text-dim); margin:0 0 0.4rem; }
+  .page-title{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.6rem; }
+  .page-title h1{ font-size:1.5rem; margin:0; }
+  .btn-primary{
+    background:var(--blue); color:#fff; font-weight:600; font-size:0.86rem;
+    padding:0.65rem 1.2rem; border-radius:6px; display:inline-block; transition:background 0.15s ease;
+  }
+  .btn-primary:hover{ background:#1360d1; }
+
+  .panel{ background:var(--white); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .resume-frame{ position:relative; min-height:420px; background:var(--bg); }
+  .resume-frame img{ width:100%; display:block; }
+  .resume-fallback{
+    display:none; position:absolute; inset:0; align-items:center; justify-content:center; text-align:center;
+    font-size:0.85rem; color:var(--text-dim); padding:2rem;
+  }
+  .resume-fallback code{ color:var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">QT</div>
+      <div class="brand-text">Quinn Tilles<span>Business Manager</span></div>
+    </div>
+    <a class="back-link" href="marketing.html">← Back</a>
+  </div>
+</div>
+
+<main>
+  <div class="wrap-n">
+    <p class="breadcrumb">Quinn Tilles / Resume</p>
+    <div class="page-title">
+      <h1>Résumé</h1>
+      <a class="btn-primary" href="assets/quinn-tilles-resume.pdf" download>Download PDF</a>
+    </div>
+    <div class="panel">
+      <div class="resume-frame">
+        <img src="assets/resume.jpg" alt="Quinn Tilles resume" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="resume-fallback">Add resume image:<br><code>assets/resume.jpg</code></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
