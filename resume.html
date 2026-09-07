@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --stage-black:#15121c;
-    --ticket-cream:#f4eee0;
-    --ticket-white:#fffdf8;
-    --ink:#1e1726;
-    --marquee-gold:#f2b705;
-    --wash-magenta:#e8407a;
-    --line-soft:rgba(244,238,224,0.18);
+    --stage-black:#171717;
+    --ticket-cream:#f8f7f3;
+    --ticket-white:#ffffff;
+    --ink:#111111;
+    --marquee-gold:#d8ff3e;
+    --wash-magenta:#5e5e5a;
+    --line-soft:rgba(248,247,243,0.16);
     --font-display:'Anton', sans-serif;
     --font-body:'Space Grotesk', sans-serif;
     --font-mono:'IBM Plex Mono', monospace;
@@ -40,8 +40,12 @@
   }
   .logo-mark{
     width:26px; height:26px; border:2px solid var(--marquee-gold); border-radius:50%;
+    overflow:hidden; position:relative;
     display:flex; align-items:center; justify-content:center;
     font-family:var(--font-mono); font-size:0.6rem; color:var(--marquee-gold);
+  }
+  .logo-mark img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
   }
   .back-link{
     font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
@@ -93,7 +97,7 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo"><span class="logo-mark">QT</span> Quinn Tilles</a>
+  <a href="index.html" class="logo"><span class="logo-mark">QT<img src="assets/photo.jpg" alt="" onerror="this.style.display='none';"></span> Quinn Tilles</a>
   <a href="index.html" class="back-link">← Back to Site</a>
 </header>
 
