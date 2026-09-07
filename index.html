@@ -321,11 +321,14 @@
   .stamp-row{ display:flex; flex-wrap:wrap; gap:1rem; }
   .stamp{
     font-family:var(--font-mono); font-weight:600; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase;
-    border:2px solid var(--spotlight-blue); color:var(--spotlight-blue);
+    border:2px solid var(--ink); color:var(--ink);
     border-radius:8px; padding:0.6rem 1rem;
   }
   .stamp:nth-child(2n){ transform:rotate(-3deg); }
-  .stamp:nth-child(3n){ transform:rotate(2deg); border-color:var(--wash-magenta); color:var(--wash-magenta); }
+  .stamp:nth-child(3n){
+    transform:rotate(2deg); border-color:var(--marquee-gold);
+    background:var(--marquee-gold); color:var(--ink);
+  }
   .stamp:nth-child(5n){ transform:rotate(-1.5deg); }
 
   .honors-list{ list-style:none; margin:0; padding:0; }
@@ -535,7 +538,7 @@
   <div class="container">
     <div class="section-heading reveal">
       <p class="eyebrow">Act II — Experience</p>
-      <h2>Where I've Spent My Time</h2>
+      <h2>Career Highlights</h2>
     </div>
     <div class="ticket-grid">
 
