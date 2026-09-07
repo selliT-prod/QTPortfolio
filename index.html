@@ -165,7 +165,7 @@
     width:8px; height:26px;
     background:linear-gradient(180deg, #e7e7ea, #9a9aa2);
     border-radius:2px;
-    margin-bottom:-2px;
+    margin-bottom:-18px;
     box-shadow:0 2px 3px rgba(0,0,0,0.35);
     position:relative; z-index:2;
   }
@@ -177,6 +177,7 @@
     aspect-ratio:0.66;
     border-radius:16px;
     position:relative;
+    z-index:1;
     overflow:hidden;
     box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
     transform:rotate(-2.5deg);
@@ -273,6 +274,10 @@
   }
   .about-extra-right{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; }
   @media (max-width:640px){ .about-extra-right{ align-items:flex-start; } .about-extra .hero-cta{ justify-content:flex-start; } }
+  .tag-label{
+    font-family:var(--font-mono); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--wash-magenta); margin:0 0 0.8rem; font-weight:600;
+  }
   .tag-row{ display:flex; flex-wrap:wrap; gap:0.6rem; }
   .tag{
     font-family:var(--font-body); font-weight:500; font-size:0.88rem;
@@ -514,13 +519,15 @@
       </div>
     </div>
     <div class="about-extra reveal">
-      <div class="tag-row">
-        <span class="tag">Traveling</span>
-        <span class="tag">Music</span>
-        <span class="tag">Family</span>
-        <span class="tag">Sports</span>
-        <span class="tag">Comedy</span>
-        <span class="tag">Community</span>
+      <div class="tag-group">
+        <p class="tag-label">Me In 5 Words</p>
+        <div class="tag-row">
+          <span class="tag">Hands-On</span>
+          <span class="tag">Family</span>
+          <span class="tag">Community</span>
+          <span class="tag">Travel</span>
+          <span class="tag">Communication</span>
+        </div>
       </div>
       <div class="about-extra-right">
         <p class="hero-meta">Long Beach, CA &nbsp;→&nbsp; San Luis Obispo, CA</p>
