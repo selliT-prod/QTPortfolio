@@ -272,17 +272,7 @@
     display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
     gap:1.6rem; margin-top:2.8rem; padding-top:2rem; border-top:1px solid var(--line-soft-dark);
   }
-  .about-extra-right{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; }
-  @media (max-width:640px){ .about-extra-right{ align-items:flex-start; } .about-extra .hero-cta{ justify-content:flex-start; } }
-  .tag-label{
-    font-family:var(--font-mono); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--wash-magenta); margin:0 0 0.8rem; font-weight:600;
-  }
-  .tag-row{ display:flex; flex-wrap:wrap; gap:0.6rem; }
-  .tag{
-    font-family:var(--font-body); font-weight:500; font-size:0.88rem;
-    border:1px solid var(--ink); border-radius:100px; padding:0.4rem 0.9rem;
-  }
+  @media (max-width:640px){ .about-extra{ flex-direction:column; align-items:flex-start; } }
   /* ---------- WORK / TICKETS ---------- */
   .ticket-grid{
     display:grid; grid-template-columns:repeat(2, 1fr); gap:1.8rem; margin-top:1rem;
@@ -519,22 +509,10 @@
       </div>
     </div>
     <div class="about-extra reveal">
-      <div class="tag-group">
-        <p class="tag-label">Me In 5 Words</p>
-        <div class="tag-row">
-          <span class="tag">Hands-On</span>
-          <span class="tag">Family</span>
-          <span class="tag">Community</span>
-          <span class="tag">Travel</span>
-          <span class="tag">Communication</span>
-        </div>
-      </div>
-      <div class="about-extra-right">
-        <p class="hero-meta">Long Beach, CA &nbsp;→&nbsp; San Luis Obispo, CA</p>
-        <div class="hero-cta">
-          <a href="#lineup" class="btn btn-solid">See the Work</a>
-          <a href="#contact" class="btn btn-outline">Get in Touch</a>
-        </div>
+      <p class="hero-meta">Long Beach, CA &nbsp;→&nbsp; San Luis Obispo, CA</p>
+      <div class="hero-cta">
+        <a href="#lineup" class="btn btn-solid">See the Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </div>
@@ -672,7 +650,7 @@
         <div class="project-text">
           <span class="project-tag">Social Media / Video Editing</span>
           <h3>BBI Autosport — Media Creation</h3>
-          <p>As a member of BBI Autosport's media team, I created short-form content designed to drive engagement and sales. I managed the full content process—from scripting and shooting to editing and publishing—while learning how to create content that connects with an automotive audience.</p>
+          <p>As a member of BBI Autosport's media team, I created short-form content designed to drive engagement and sales of their Porsche performance upgrades. I managed the full content process, from scripting and shooting to editing and publishing.</p>
           <a class="project-cta" href="https://www.instagram.com/bbiautosport/reels/" target="_blank" rel="noopener">Visit Site →</a>
         </div>
         <div class="project-media portrait">
@@ -687,7 +665,7 @@
         <div class="project-text">
           <span class="project-tag">Live Events / Stage Management</span>
           <h3>Nylon House</h3>
-          <p>Brad Smith, widely recognized as Spotify's go-to live events manager, brought me onto his production team for Nylon House, a private event held during Coachella Weekend. I supported talent and their teams while coordinating with stage, audio, lighting, and security crews to help keep the event running smoothly. After seeing my work, Brad signed on to co-produce my first live concert in San Luis Obispo in spring 2027.</p>
+          <p>Brad Smith, Spotify's go-to live events manager, brought me onto his production team for Nylon House, a private event held during Coachella Weekend. I supported talent and their teams while coordinating with stage, audio, lighting, and security crews. After seeing my work, Brad signed on to co-produce my first live concert in San Luis Obispo in spring 2027.</p>
         </div>
         <div class="project-media">
           <div class="project-photo project-video">
@@ -721,7 +699,7 @@
   <div class="container">
     <div class="section-heading reveal">
       <p class="eyebrow">Act V — Travel</p>
-      <h2>Exploring All Across The World</h2>
+      <h2>Exploration</h2>
     </div>
     <div class="travel-grid reveal">
 
@@ -806,7 +784,7 @@
   <div class="container">
     <div class="section-heading reveal">
       <p class="eyebrow">Act VI — Education</p>
-      <h2>These Are Not the Droids You're Looking For</h2>
+      <h2>Education</h2>
     </div>
     <div class="reveal">
       <div class="edu-row">
